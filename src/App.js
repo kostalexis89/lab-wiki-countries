@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import countriesData from './countries.json'
 import React, { useState } from 'react'
 import CountriesList from './components/CountriesList';
+import { Routes, Route } from 'react-router-dom';
+import CountriesDetails from './components/CountryDetails'
 
 function App() {
   const setInitialValue = () => {
@@ -16,6 +18,10 @@ function App() {
         <div className="row">
           <CountriesList countries={countries} />
           {/* React-Router Route rendering the CountryDetails should go here */}
+          <Routes>
+          {/* <Route path='/' element={<CountriesList countries={countries}/>} /> */}
+          <Route path='/:alpha3code' element={<CountriesDetails countries={countries}/>} />
+        </Routes>
         </div>
       </div>
     </div>
